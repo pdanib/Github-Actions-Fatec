@@ -9,14 +9,14 @@
     "build": "echo \"🏗️ Simulando build do projeto...\"",
     "deploy": "echo \"🚀 Simulando deploy para o Azure App Service...\""
   },
-  "author": "Edson Parisotto",
+  "author": "Daniela Bosco",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Parisotto/GitHub-Actions.git"
+    "url": "https://github.com/pdanib/GitHub-Actions.git"
   },
   "bugs": {
     "url": "https://github.com/Parisotto/GitHub-Actions/issues"
