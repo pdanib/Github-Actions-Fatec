@@ -8,44 +8,46 @@ on:
 
 jobs:
   testes:
-    name: Job 1 Teste
+    name: Job 1 - Testes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
-      
-      - name: Setup do Node.js
+
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Instalar dependências
+        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
         run: npm install
 
-      - name: Rodar testes
+      - name: Executar testes
+        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
         run: npm test
 
   build:
-    name: Job 2 Build
+    name: Job 2 - Build
     runs-on: ubuntu-latest
     needs: testes
     steps:
-      - name: Rodar build
+      - name: Build do projeto
+        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
         run: npm run build
 
   qa:
     name: Fase de QA
     runs-on: ubuntu-latest
-    needs: [testes, build]
+    needs: build
     steps:
-      - name: Testes de QA
-        run: echo "Testes de QA executados"
+      - run: echo "Testes de QA executados"
 
   prod:
-    name: Em produção
+    name: Produção
     runs-on: ubuntu-latest
     needs: qa
     steps:
       - name: Deploy
+        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
         run: npm run deploy
-        
