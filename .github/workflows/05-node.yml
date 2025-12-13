@@ -20,11 +20,11 @@ jobs:
           node-version: 20
 
       - name: Instalar dependências
-        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
+        working-directory: GitHub-Actions-Fatec
         run: npm install
 
       - name: Executar testes
-        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
+        working-directory: GitHub-Actions-Fatec
         run: npm test
 
   build:
@@ -33,7 +33,7 @@ jobs:
     needs: testes
     steps:
       - name: Build do projeto
-        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
+        working-directory: GitHub-Actions-Fatec
         run: npm run build
 
   qa:
@@ -49,5 +49,5 @@ jobs:
     needs: qa
     steps:
       - name: Deploy
-        working-directory: GitHub-Actions-Fatec/GitHub-Actions-Fatec
+        working-directory: GitHub-Actions-Fatec
         run: npm run deploy
